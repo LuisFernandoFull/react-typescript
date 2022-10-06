@@ -26,6 +26,8 @@ export const StyledHeadline = styled.p`
 
 export const StyledHeadlineBold = styled(StyledHeadline)`
   font-weight: 600;
+  font-size: ${(props) => props.fontSize}px;
+  color: ${(props) => props.color};
 `;
 
 export const StyledHeadlineItalic = styled(StyledHeadline)`
