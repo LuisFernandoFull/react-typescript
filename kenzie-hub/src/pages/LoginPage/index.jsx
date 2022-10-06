@@ -5,18 +5,24 @@ import { StyledHeadline, StyledTitleOne } from "../../styles/typography";
 import { StyledDiv } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { formLoginSchema } from "../../validation";
+
 export const LoginPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
+  } = useForm({
+    resolver: yupResolver(formLoginSchema),
+  });
+  const onSubmitFunction = (data) => {
+    console.log(data);
+  };
   return (
     <Main>
       <StyledDiv>
         <StyledTitleOne>Login</StyledTitleOne>
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmitFunction)}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
