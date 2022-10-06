@@ -1,8 +1,9 @@
 import "./App.css";
-import { LoginPage } from "./pages/LoginPage";
+
+import { RoutesMain } from "./routes";
 
 function App() {
-  return <LoginPage />;
+  return <RoutesMain />;
 }
 
 export default App;
