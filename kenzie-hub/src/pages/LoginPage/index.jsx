@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formLoginSchema } from "../../validation";
 
+import { api } from "../../services/api";
+import { toast } from "react-toastify";
+
 export const LoginPage = () => {
   const {
     register,
@@ -15,14 +18,28 @@ export const LoginPage = () => {
   } = useForm({
     resolver: yupResolver(formLoginSchema),
   });
-  const onSubmitFunction = (data) => {
-    console.log(data);
+
+  const handleForm = (userData) => {
+    api
+      .post("/sessions", { ...userData })
+      .then((response) => {
+        console.log({ ...response });
+        window.localStorage.clear();
+        window.localStorage.setItem("authToken", response.data.token);
+      })
+      .catch((error) => {
+        const msg = console.log(error.response.data.message);
+        toast.error(`${error.response.data.message}`, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
   };
+
   return (
     <Main>
       <StyledDiv>
         <StyledTitleOne>Login</StyledTitleOne>
-        <Form onSubmit={handleSubmit(onSubmitFunction)}>
+        <Form onSubmit={handleSubmit(handleForm)}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
