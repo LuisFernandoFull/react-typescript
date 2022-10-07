@@ -23,3 +23,8 @@ export const StyledButton = styled.button`
     border: 1px solid var(--color-primary-Negative);
   }
 `;
+
+export const StyledButtonTwo = styled(StyledButton)`
+  background-color: var(--color-primary-Negative);
+  border: 1px solid var(--color-primary-Negative);
+`;

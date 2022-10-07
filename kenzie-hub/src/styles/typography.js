@@ -4,7 +4,7 @@ export const StyledTitleOne = styled.h1`
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: ${(props) => props.fontSize}px;
   line-height: 28px;
   color: ${(props) => props.color};
 `;
@@ -32,4 +32,8 @@ export const StyledHeadlineBold = styled(StyledHeadline)`
 
 export const StyledHeadlineItalic = styled(StyledHeadline)`
   font-style: italic;
+`;
+
+export const StyledNagetive = styled(StyledHeadline)`
+  color: var(--negative);
 `;
