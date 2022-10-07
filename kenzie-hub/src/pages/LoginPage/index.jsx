@@ -14,6 +14,7 @@ import { Label } from "../../components/Label";
 
 import { Button } from "../../components/Button";
 import { StyledInput } from "../../components/Input/style";
+
 export const LoginPage = () => {
   const {
     register,
