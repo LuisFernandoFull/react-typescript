@@ -1,15 +1,28 @@
 import { useForm } from "react-hook-form";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
-import { StyledHeadline, StyledTitleOne } from "../../styles/typography";
-import { StyledDiv } from "./style";
+import {
+  StyledHeadline,
+  StyledNagetive,
+  StyledTitleOne,
+} from "../../styles/typography";
+import {
+  Container,
+  StyledDiv,
+  StyledDivLogoLink,
+  StyledLink,
+  StyledSelect,
+} from "./style";
 import LogoHub from "../../assests/LogoHub.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formRegisterSchema } from "../../validation";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import { Label } from "../../components/Label";
+import { StyledInput } from "../../components/Input/style";
+import { ButtonRegister } from "../../components/Button";
 
 export const RegisterPage = () => {
   const navigation = useNavigate();
@@ -39,93 +52,109 @@ export const RegisterPage = () => {
   };
   return (
     <Main>
-      <StyledDiv>
-        <div>
+      <Container>
+        <StyledDivLogoLink>
           <img src={LogoHub} alt="Logo Kenzie Hub" />
 
-          <Link to={"/"}>Voltar</Link>
-        </div>
-        <div>
-          <StyledTitleOne>Crie uma conta</StyledTitleOne>
-          <StyledHeadline>Rapido e grátis, vamos nessa</StyledHeadline>
-        </div>
+          <StyledLink to={"/"}>Voltar</StyledLink>
+        </StyledDivLogoLink>
+        <StyledDiv>
+          <div>
+            <StyledTitleOne fontSize={24} color={`${"var(--grey-0)"}`}>
+              Crie uma conta
+            </StyledTitleOne>
+            <StyledHeadline fontSize={9} color={`${"var(--grey-1)"}`}>
+              Rapido e grátis, vamos nessa
+            </StyledHeadline>
+          </div>
 
-        <Form onSubmit={handleSubmit(onSubmitFunction)}>
-          <label htmlFor="name">Nome</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="digite aqui seu nome"
-            {...register("name")}
-          />
-          <StyledHeadline>{errors.name?.message}</StyledHeadline>
+          <Form onSubmit={handleSubmit(onSubmitFunction)}>
+            <Label htmlFor="name">Nome</Label>
+            <StyledInput
+              type="text"
+              id="name"
+              placeholder="digite aqui seu nome"
+              {...register("name")}
+            />
+            <StyledNagetive fontSize={9}>{errors.name?.message}</StyledNagetive>
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Digite aqui seu email"
-            {...register("email")}
-          />
-          <StyledHeadline>{errors.email?.message}</StyledHeadline>
+            <Label htmlFor="email">Email</Label>
+            <StyledInput
+              type="email"
+              id="email"
+              placeholder="Digite aqui seu email"
+              {...register("email")}
+            />
+            <StyledNagetive fontSize={9}>
+              {errors.email?.message}
+            </StyledNagetive>
 
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Digite aqui sua senha"
-            {...register("password")}
-          />
-          <StyledHeadline>{errors.password?.message}</StyledHeadline>
+            <Label htmlFor="password">Senha</Label>
+            <StyledInput
+              type="password"
+              id="password"
+              placeholder="Digite aqui sua senha"
+              {...register("password")}
+            />
+            <StyledNagetive fontSize={9}>
+              {errors.password?.message}
+            </StyledNagetive>
 
-          <label htmlFor="confirm-password">Confirmar senha</label>
-          <input
-            type="password"
-            id="confirm-password"
-            placeholder="Digite novamente sua senha"
-            {...register("confirmpassword")}
-          />
-          <StyledHeadline>{errors.confirmpassword?.message}</StyledHeadline>
+            <Label htmlFor="confirm-password">Confirmar senha</Label>
+            <StyledInput
+              type="password"
+              id="confirm-password"
+              placeholder="Digite novamente sua senha"
+              {...register("confirmpassword")}
+            />
+            <StyledNagetive fontSize={9}>
+              {errors.confirmpassword?.message}
+            </StyledNagetive>
 
-          <label htmlFor="bio">Bio</label>
-          <input
-            type="text"
-            id="bio"
-            placeholder="Fale sobre você"
-            {...register("bio")}
-          />
-          <StyledHeadline>{errors.bio?.message}</StyledHeadline>
+            <Label htmlFor="bio">Bio</Label>
+            <StyledInput
+              type="text"
+              id="bio"
+              placeholder="Fale sobre você"
+              {...register("bio")}
+            />
+            <StyledNagetive fontSize={9}>{errors.bio?.message}</StyledNagetive>
 
-          <label htmlFor="contact">Contato</label>
-          <input
-            type="text"
-            id="contact"
-            placeholder="Opção de contato"
-            {...register("contact")}
-          />
-          <StyledHeadline>{errors.contact?.message}</StyledHeadline>
+            <Label htmlFor="contact">Contato</Label>
+            <StyledInput
+              type="text"
+              id="contact"
+              placeholder="Opção de contato"
+              {...register("contact")}
+            />
+            <StyledNagetive fontSize={9}>
+              {errors.contact?.message}
+            </StyledNagetive>
 
-          <label htmlFor="course_module">Selecionar módulo</label>
-          <select id="course_module" {...register("course_module")}>
-            <option>Selecione</option>
-            <option value="Primeiro módulo (Introdução ao Frontend)">
-              Primeiro módulo
-            </option>
-            <option value=" Segundo Módulo (Frontend Avançado)">
-              Segundo Módulo
-            </option>
-            <option value="Terceiro módulo (Introdução ao Backend)">
-              Terceiro Módulo
-            </option>
-            <option value="Quarto módulo (Backend Avançado)">
-              Quarto Módulo
-            </option>
-          </select>
-          <StyledHeadline>{errors.course_module?.message}</StyledHeadline>
+            <Label htmlFor="course_module">Selecionar módulo</Label>
+            <StyledSelect id="course_module" {...register("course_module")}>
+              <option>Selecione</option>
+              <option value="Primeiro módulo (Introdução ao Frontend)">
+                Primeiro módulo
+              </option>
+              <option value=" Segundo Módulo (Frontend Avançado)">
+                Segundo Módulo
+              </option>
+              <option value="Terceiro módulo (Introdução ao Backend)">
+                Terceiro Módulo
+              </option>
+              <option value="Quarto módulo (Backend Avançado)">
+                Quarto Módulo
+              </option>
+            </StyledSelect>
+            <StyledHeadline fontSize={9}>
+              {errors.course_module?.message}
+            </StyledHeadline>
 
-          <button type="submit">Cadastrar</button>
-        </Form>
-      </StyledDiv>
+            <ButtonRegister type="submit">Cadastrar</ButtonRegister>
+          </Form>
+        </StyledDiv>
+      </Container>
     </Main>
   );
 };
