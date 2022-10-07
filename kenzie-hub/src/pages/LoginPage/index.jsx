@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
 import { StyledHeadline, StyledTitleOne } from "../../styles/typography";
-import { StyledDiv } from "./style";
+import { StyledDiv, StyledDivLinkMsg, StyledLink } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formLoginSchema } from "../../validation";
 
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import LogoHub from "../../assests/LogoHub.svg";
+import { Img } from "../../components/Imagem";
+import { Label } from "../../components/Label";
+
+import { Button } from "../../components/Button";
+import { StyledInput } from "../../components/Input/style";
 
 export const LoginPage = () => {
   const {
@@ -28,43 +33,54 @@ export const LoginPage = () => {
         window.localStorage.setItem("authToken", response.data.token);
       })
       .catch((error) => {
-        const msg = console.log(error.response.data.message);
         toast.error(`${error.response.data.message}`, {
           position: toast.POSITION.TOP_RIGHT,
+          toastId: 1,
         });
       });
   };
 
   return (
     <Main>
+      <Img
+        src={LogoHub}
+        alt={"Imagem logo kenziehub"}
+        width={100}
+        height={50}
+      />
       <StyledDiv>
-        <StyledTitleOne>Login</StyledTitleOne>
+        <StyledTitleOne color="#fff">Login</StyledTitleOne>
         <Form onSubmit={handleSubmit(handleForm)}>
-          <label htmlFor="email">Email</label>
-          <input
+          <Label htmlFor="email">Email</Label>
+          <StyledInput
             type="email"
             id="email"
             placeholder="Digite seu E-mail"
             {...register("email")}
           />
-          <StyledHeadline>{errors.email?.message}</StyledHeadline>
+          <StyledHeadline fontSize={9} color={"#E83F5B"}>
+            {errors.email?.message}
+          </StyledHeadline>
 
-          <label htmlFor="password">Senha</label>
-          <input
+          <Label htmlFor="password">Senha</Label>
+          <StyledInput
             type="password"
             id="password"
             placeholder="Digite sua senha"
             {...register("password")}
           />
-          <StyledHeadline>{errors.password?.message}</StyledHeadline>
-
-          <button type="submit">Entrar</button>
-
-          <StyledHeadline fontSize={9} color={"#868E96"}>
-            Ainda não possui uma conta ?
+          <StyledHeadline fontSize={9}>
+            {errors.password?.message}
           </StyledHeadline>
 
-          <Link>Cadastre-se</Link>
+          <Button type="submit">Entrar</Button>
+          <StyledDivLinkMsg>
+            <StyledHeadline fontSize={12} color={"#868E96"}>
+              Ainda não possui uma conta ?
+            </StyledHeadline>
+
+            <StyledLink to={"/register"}>Cadastre-se</StyledLink>
+          </StyledDivLinkMsg>
         </Form>
       </StyledDiv>
     </Main>

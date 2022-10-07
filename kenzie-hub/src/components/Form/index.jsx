@@ -1,3 +1,5 @@
+import { StyledForm } from "./style";
+
 export const Form = ({ children, onSubmit }) => {
-  return <form onSubmit={onSubmit}>{children}</form>;
+  return <StyledForm onSubmit={onSubmit}>{children}</StyledForm>;
 };

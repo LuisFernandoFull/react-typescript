@@ -28,6 +28,8 @@ const StyleGlobal = createGlobalStyle`
         --grey-2: #343B41;
        
         --grey-1: #868E96;
+
+        --grey-1-50:#868e9680;
        
         --grey-0: #F8F9FA;
 
@@ -38,6 +40,13 @@ const StyleGlobal = createGlobalStyle`
 
         --negative: #E83F5B;
 
+    }
+
+    body{
+        width: 100vw;
+        height: 100vh;
+
+        background-color: var(--grey-4);
     }
 
 `;
