@@ -1,7 +1,15 @@
+import { Flip, ToastContainer } from "react-toastify";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.min.css";
+import { RoutesMain } from "./routes";
 
 function App() {
-  return <h1>teste</h1>;
+  return (
+    <>
+      <RoutesMain />
+      <ToastContainer autoClose={1500} transition={Flip} />
+    </>
+  );
 }
 
 export default App;
