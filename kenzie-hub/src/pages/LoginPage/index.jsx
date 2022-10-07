@@ -28,9 +28,9 @@ export const LoginPage = () => {
         window.localStorage.setItem("authToken", response.data.token);
       })
       .catch((error) => {
-        const msg = console.log(error.response.data.message);
         toast.error(`${error.response.data.message}`, {
           position: toast.POSITION.TOP_RIGHT,
+          toastId: 1,
         });
       });
   };
@@ -64,7 +64,7 @@ export const LoginPage = () => {
             Ainda não possui uma conta ?
           </StyledHeadline>
 
-          <Link>Cadastre-se</Link>
+          <Link to={"/register"}>Cadastre-se</Link>
         </Form>
       </StyledDiv>
     </Main>
