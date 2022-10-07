@@ -9,7 +9,11 @@ import { formLoginSchema } from "../../validation";
 
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-
+import LogoHub from "../../assests/LogoHub.svg";
+import { Img } from "../../components/Imagem";
+import { Label } from "../../components/Label";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 export const LoginPage = () => {
   const {
     register,
@@ -37,11 +41,17 @@ export const LoginPage = () => {
 
   return (
     <Main>
+      <Img
+        src={LogoHub}
+        alt={"Imagem logo kenziehub"}
+        width={100}
+        height={50}
+      />
       <StyledDiv>
         <StyledTitleOne>Login</StyledTitleOne>
         <Form onSubmit={handleSubmit(handleForm)}>
-          <label htmlFor="email">Email</label>
-          <input
+          <Label htmlFor="email">Email</Label>
+          <Input
             type="email"
             id="email"
             placeholder="Digite seu E-mail"
@@ -49,8 +59,8 @@ export const LoginPage = () => {
           />
           <StyledHeadline>{errors.email?.message}</StyledHeadline>
 
-          <label htmlFor="password">Senha</label>
-          <input
+          <Label htmlFor="password">Senha</Label>
+          <Input
             type="password"
             id="password"
             placeholder="Digite sua senha"
@@ -58,7 +68,7 @@ export const LoginPage = () => {
           />
           <StyledHeadline>{errors.password?.message}</StyledHeadline>
 
-          <button type="submit">Entrar</button>
+          <Button type="submit">Entrar</Button>
 
           <StyledHeadline fontSize={9} color={"#868E96"}>
             Ainda não possui uma conta ?

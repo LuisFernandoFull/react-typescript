@@ -40,5 +40,12 @@ const StyleGlobal = createGlobalStyle`
 
     }
 
+    body{
+        width: 100vw;
+        height: 100vh;
+
+        background-color: var(--grey-4);
+    }
+
 `;
 export default StyleGlobal;
