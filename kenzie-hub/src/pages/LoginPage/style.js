@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+
+  width: 100vw;
+
+  img {
+    padding-bottom: 30px;
+  }
+`;
+
 export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
