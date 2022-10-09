@@ -14,8 +14,10 @@ import { Label } from "../../components/Label";
 
 import { Button } from "../../components/Button";
 import { StyledInput } from "../../components/Input/style";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,6 +33,7 @@ export const LoginPage = () => {
         console.log({ ...response });
         window.localStorage.clear();
         window.localStorage.setItem("authToken", response.data.token);
+        navigate("/");
       })
       .catch((error) => {
         toast.error(`${error.response.data.message}`, {

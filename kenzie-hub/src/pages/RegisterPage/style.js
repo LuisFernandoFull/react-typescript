@@ -69,6 +69,12 @@ export const StyledLink = styled(Link)`
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
+
+  &:hover {
+    border: 1px solid var(--grey-2);
+    background-color: var(--grey-2);
+    transition: 0.5s ease;
+  }
 `;
 
 export const StyledSelect = styled.select`
