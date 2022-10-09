@@ -35,6 +35,7 @@ const StyleGlobal = createGlobalStyle`
        
         --grey-0: #F8F9FA;
 
+        --modal-1: #12121c80;
 
         /* Feedback Palette */
 

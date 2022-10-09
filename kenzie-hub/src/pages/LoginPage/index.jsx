@@ -33,7 +33,7 @@ export const LoginPage = () => {
         console.log({ ...response });
         window.localStorage.clear();
         window.localStorage.setItem("authToken", response.data.token);
-        navigate("/");
+        navigate("/dashbord");
       })
       .catch((error) => {
         toast.error(`${error.response.data.message}`, {

@@ -32,3 +32,8 @@ export const formRegisterSchema = yup.object().shape({
   bio: yup.string().required("Bio obrigatoria"),
   course_module: yup.string().required("Selecione um módulo"),
 });
+
+export const formTechSchema = yup.object().shape({
+  title: yup.string().required("Nome da tecnologia obrigatorio"),
+  status: yup.string().required("Nivel obrigatorio"),
+});
