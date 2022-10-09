@@ -1,4 +1,4 @@
-import { StyledButton, StyledButtonTwo } from "./style";
+import { StyledButton, StyledButtonExit, StyledButtonTwo } from "./style";
 
 export const Button = ({ type, onClick, children }) => {
   return (
@@ -13,5 +13,13 @@ export const ButtonRegister = ({ type, onClick, children }) => {
     <StyledButtonTwo type={type} onClick={onClick}>
       {children}
     </StyledButtonTwo>
+  );
+};
+
+export const ButtonExit = ({ type, onClick, children }) => {
+  return (
+    <StyledButtonExit type={type} onClick={onClick}>
+      {children}
+    </StyledButtonExit>
   );
 };

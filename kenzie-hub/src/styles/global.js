@@ -3,9 +3,11 @@ import { createGlobalStyle } from "styled-components";
 const StyleGlobal = createGlobalStyle`
 
     *{
+        
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        list-style: none;
     }
 
     :root{
@@ -33,6 +35,7 @@ const StyleGlobal = createGlobalStyle`
        
         --grey-0: #F8F9FA;
 
+        --modal-1: #12121c80;
 
         /* Feedback Palette */
 
@@ -45,9 +48,16 @@ const StyleGlobal = createGlobalStyle`
     body{
         width: 100vw;
         height: 100vh;
-
+        font-family: 'Inter';
+        font-style: normal;
         background-color: var(--grey-4);
-    }
 
+       > div{
+            height: 100%;
+        }
+    }
+button{
+    cursor: pointer;
+}
 `;
 export default StyleGlobal;
