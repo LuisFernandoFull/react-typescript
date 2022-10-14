@@ -1,36 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { AllStructureDashbord } from "../../components/DashboardStructure/AllStructure";
 import { Header } from "../../components/Header";
 import { Nav } from "../../components/Nav";
-import { api } from "../../services/api";
+import { DashbordContext } from "../../contexts/DashbordContext/DashbordContext";
 
 export const Dashbord = () => {
-  const [userData, setUserData] = useState([]);
-
-  const token = localStorage.getItem("@KENZIEHUB-TOKEN");
-
-  useEffect(() => {
-    api
-      .get("/profile")
-      .then((reponse) => {
-        console.log(reponse);
-        setUserData([reponse]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [token]);
+  const { user } = useContext(DashbordContext);
 
   return (
     <>
       <Nav />
 
-      {userData.length === 0 ? (
+      {user.length === 0 ? (
         <h1>loading</h1>
       ) : (
         <>
-          <Header userData={userData} />
-          <AllStructureDashbord userData={userData} />
+          <Header />
+          <AllStructureDashbord />
         </>
       )}
     </>

@@ -36,7 +36,7 @@ export const AuthenticationProvider = ({ children }) => {
   const handleLogin = async (data) => {
     try {
       const response = await api.post("/sessions", data);
-      console.log(response);
+
       window.localStorage.setItem("@KENZIEHUB:TOKEN", response.data.token);
       const { user: userResponse, token } = response.data;
 

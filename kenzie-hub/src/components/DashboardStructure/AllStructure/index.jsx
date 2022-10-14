@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ModalContext } from "../../../contexts/ModalContext/ModalContext";
 import { ModalRegisterTech } from "../../Modal/RegisterTech";
 import { AddTech } from "../AddTech";
 import { ListTechs } from "../Techs/ListTechs";
-import { UserInformation } from "../UserInformation";
+
 import { StyledMain } from "./style";
 
-export const AllStructureDashbord = ({ userData }) => {
-  const [currentModal, setCurrentModal] = useState(null);
+export const AllStructureDashbord = () => {
+  const { currentModal } = useContext(ModalContext);
   return (
     <StyledMain>
-      {currentModal && <ModalRegisterTech setCurrentModal={setCurrentModal} />}
-      <AddTech setCurrentModal={setCurrentModal} />
+      {currentModal && <ModalRegisterTech />}
+      <AddTech />
       <ListTechs />
     </StyledMain>
   );

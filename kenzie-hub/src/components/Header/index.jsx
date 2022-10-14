@@ -1,9 +1,9 @@
 import { UserInformation } from "../DashboardStructure/UserInformation";
 import { StyledHeader } from "./style";
-export const Header = ({ userData }) => {
+export const Header = () => {
   return (
     <StyledHeader>
-      <UserInformation userData={userData} />
+      <UserInformation />
     </StyledHeader>
   );
 };

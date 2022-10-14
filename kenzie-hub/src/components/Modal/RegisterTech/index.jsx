@@ -3,58 +3,30 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../Button";
 import { StyledInput } from "../../Input/style";
 import { Label } from "../../Label";
-import {
-  StyledDiv,
-  StyledModalDiv,
-  StyledRegisterTech,
-  StyledSelect,
-} from "./style";
+import { StyledDiv, StyledModalDiv, StyledSelect } from "./style";
 import { formTechSchema } from "../../../validation";
-import { toast } from "react-toastify";
-import { api } from "../../../services/api";
-import { useEffect, useRef } from "react";
-export const ModalRegisterTech = ({ setCurrentModal }) => {
-  const modalRef = useRef();
+
+import { useContext, useEffect } from "react";
+import { TechsContext } from "../../../contexts/TechsContext/TechsContext";
+import { ModalContext } from "../../../contexts/ModalContext/ModalContext";
+export const ModalRegisterTech = () => {
+  const { createTech } = useContext(TechsContext);
+  const { setCurrentModal, handleOutClick, modalRef } =
+    useContext(ModalContext);
 
   useEffect(() => {
-    function handleOutClick(e) {
-      const target = e.target;
-
-      if (!modalRef.current.contains(target)) {
-        setCurrentModal(null);
-      }
-    }
     document.addEventListener("mousedown", handleOutClick);
-
     return () => {
       document.removeEventListener("mousedown", handleOutClick);
     };
   }, []);
 
-  const token = localStorage.getItem("authToken");
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(formTechSchema),
   });
 
   const onSubmitFunction = (techData) => {
-    console.log(techData);
-    api
-      .post("/users/techs", techData, {
-        headers: {
-          Authorization: `token ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        toast.success("Conta criada com sucesso!");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(`${error.response.data.message}`, {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: 1,
-        });
-      });
+    createTech(techData);
   };
 
   return (
