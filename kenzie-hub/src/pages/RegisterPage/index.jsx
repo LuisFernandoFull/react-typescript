@@ -14,18 +14,18 @@ import {
   StyledSelect,
 } from "./style";
 import LogoHub from "../../assests/LogoHub.svg";
-import { useNavigate } from "react-router-dom";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formRegisterSchema } from "../../validation";
-import { api } from "../../services/api";
-import { toast } from "react-toastify";
+
 import { Label } from "../../components/Label";
 import { StyledInput } from "../../components/Input/style";
 import { ButtonRegister } from "../../components/Button";
+import { useContext } from "react";
+import { AuthenticationContext } from "../../contexts/UserContext/AuthContext";
 
 export const RegisterPage = () => {
-  const navigation = useNavigate();
+  const { handleRegister } = useContext(AuthenticationContext);
   const {
     register,
     handleSubmit,
@@ -34,21 +34,7 @@ export const RegisterPage = () => {
     resolver: yupResolver(formRegisterSchema),
   });
   const onSubmitFunction = (registerData) => {
-    console.log(registerData);
-    api
-      .post("/users", { ...registerData })
-      .then((response) => {
-        console.log(response);
-        toast.success("Conta criada com sucesso!");
-        navigation("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(`${error.response.data.message}`, {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: 1,
-        });
-      });
+    handleRegister(registerData);
   };
   return (
     <Main>

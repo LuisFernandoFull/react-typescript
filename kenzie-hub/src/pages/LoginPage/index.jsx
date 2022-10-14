@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { AuthenticationContext } from "../../contexts/UserContext/AuthContext";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
 import { StyledHeadline, StyledTitleOne } from "../../styles/typography";
@@ -6,18 +8,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formLoginSchema } from "../../validation";
 
-import { api } from "../../services/api";
-import { toast } from "react-toastify";
 import LogoHub from "../../assests/LogoHub.svg";
 import { Img } from "../../components/Imagem";
 import { Label } from "../../components/Label";
 
 import { Button } from "../../components/Button";
 import { StyledInput } from "../../components/Input/style";
-import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
+  const { handleLogin } = useContext(AuthenticationContext);
+
   const {
     register,
     handleSubmit,
@@ -26,21 +26,8 @@ export const LoginPage = () => {
     resolver: yupResolver(formLoginSchema),
   });
 
-  const handleForm = (userData) => {
-    api
-      .post("/sessions", { ...userData })
-      .then((response) => {
-        console.log({ ...response });
-        window.localStorage.clear();
-        window.localStorage.setItem("authToken", response.data.token);
-        navigate("/dashbord");
-      })
-      .catch((error) => {
-        toast.error(`${error.response.data.message}`, {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: 1,
-        });
-      });
+  const handleForm = (data) => {
+    handleLogin(data);
   };
 
   return (
