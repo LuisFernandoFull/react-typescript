@@ -10,7 +10,6 @@ export const StyledLi = styled.li`
 
   &:hover {
     background-color: var(--grey-2);
-    scale: 1.03;
   }
 
   > div {
@@ -25,10 +24,6 @@ export const StyledLi = styled.li`
       height: 24px;
       color: white;
       font-size: 23px;
-
-      &:hover {
-        scale: 1.3;
-      }
     }
   }
 `;
