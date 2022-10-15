@@ -2,7 +2,11 @@ import { useContext } from "react";
 import { AuthenticationContext } from "../../contexts/UserContext/AuthContext";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
-import { StyledHeadline, StyledTitleOne } from "../../styles/typography";
+import {
+  StyledHeadline,
+  StyledNagetive,
+  StyledTitleOne,
+} from "../../styles/typography";
 import { Container, StyledDiv, StyledDivLinkMsg, StyledLink } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -49,9 +53,9 @@ export const LoginPage = () => {
               placeholder="Digite seu E-mail"
               {...register("email")}
             />
-            <StyledHeadline fontSize={12} color={"#E83F5B"}>
+            <StyledNagetive fontSize={12}>
               {errors.email?.message}
-            </StyledHeadline>
+            </StyledNagetive>
 
             <Label htmlFor="password">Senha</Label>
             <StyledInput
@@ -60,9 +64,9 @@ export const LoginPage = () => {
               placeholder="Digite sua senha"
               {...register("password")}
             />
-            <StyledHeadline fontSize={12} color={"#E83F5B"}>
+            <StyledNagetive fontSize={12}>
               {errors.password?.message}
-            </StyledHeadline>
+            </StyledNagetive>
 
             <Button type="submit">Entrar</Button>
             <StyledDivLinkMsg>
