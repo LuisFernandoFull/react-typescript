@@ -49,7 +49,7 @@ export const LoginPage = () => {
               placeholder="Digite seu E-mail"
               {...register("email")}
             />
-            <StyledHeadline fontSize={9} color={"#E83F5B"}>
+            <StyledHeadline fontSize={12} color={"#E83F5B"}>
               {errors.email?.message}
             </StyledHeadline>
 
@@ -60,7 +60,7 @@ export const LoginPage = () => {
               placeholder="Digite sua senha"
               {...register("password")}
             />
-            <StyledHeadline fontSize={9}>
+            <StyledHeadline fontSize={12} color={"#E83F5B"}>
               {errors.password?.message}
             </StyledHeadline>
 
