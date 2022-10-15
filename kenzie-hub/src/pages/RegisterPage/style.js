@@ -18,9 +18,8 @@ export const StyledDiv = styled.div`
   align-items: center;
 
   width: 80%;
-  height: 900px;
-
-  background: #212529;
+  height: 935px;
+  background-color: var(--grey-3);
   box-shadow: 0px 3px 32px -8px rgb(0 0 0 / 25%);
   border-radius: 3px;
   max-width: 500px;

@@ -5,7 +5,7 @@ export const StyledLi = styled.li`
   align-items: center;
   justify-content: space-between;
   background-color: var(--grey-4);
-  border-radius: 4.06066px;
+  border-radius: 4px;
   padding: 23px;
 
   &:hover {

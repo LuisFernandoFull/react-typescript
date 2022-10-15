@@ -49,7 +49,7 @@ export const RegisterPage = () => {
             <StyledTitleOne fontSize={24} color={`${"var(--grey-0)"}`}>
               Crie uma conta
             </StyledTitleOne>
-            <StyledHeadline fontSize={9} color={`${"var(--grey-1)"}`}>
+            <StyledHeadline fontSize={12} color={`${"var(--grey-1)"}`}>
               Rapido e grátis, vamos nessa
             </StyledHeadline>
           </div>
@@ -62,7 +62,9 @@ export const RegisterPage = () => {
               placeholder="digite aqui seu nome"
               {...register("name")}
             />
-            <StyledNagetive fontSize={9}>{errors.name?.message}</StyledNagetive>
+            <StyledNagetive fontSize={12}>
+              {errors.name?.message}
+            </StyledNagetive>
 
             <Label htmlFor="email">Email</Label>
             <StyledInput
@@ -71,7 +73,7 @@ export const RegisterPage = () => {
               placeholder="Digite aqui seu email"
               {...register("email")}
             />
-            <StyledNagetive fontSize={9}>
+            <StyledNagetive fontSize={12}>
               {errors.email?.message}
             </StyledNagetive>
 
@@ -82,7 +84,7 @@ export const RegisterPage = () => {
               placeholder="Digite aqui sua senha"
               {...register("password")}
             />
-            <StyledNagetive fontSize={9}>
+            <StyledNagetive fontSize={12}>
               {errors.password?.message}
             </StyledNagetive>
 
@@ -93,7 +95,7 @@ export const RegisterPage = () => {
               placeholder="Digite novamente sua senha"
               {...register("confirmpassword")}
             />
-            <StyledNagetive fontSize={9}>
+            <StyledNagetive fontSize={12}>
               {errors.confirmpassword?.message}
             </StyledNagetive>
 
@@ -104,7 +106,7 @@ export const RegisterPage = () => {
               placeholder="Fale sobre você"
               {...register("bio")}
             />
-            <StyledNagetive fontSize={9}>{errors.bio?.message}</StyledNagetive>
+            <StyledNagetive fontSize={12}>{errors.bio?.message}</StyledNagetive>
 
             <Label htmlFor="contact">Contato</Label>
             <StyledInput
@@ -113,7 +115,7 @@ export const RegisterPage = () => {
               placeholder="Opção de contato"
               {...register("contact")}
             />
-            <StyledNagetive fontSize={9}>
+            <StyledNagetive fontSize={12}>
               {errors.contact?.message}
             </StyledNagetive>
 
@@ -133,7 +135,7 @@ export const RegisterPage = () => {
                 Quarto Módulo
               </option>
             </StyledSelect>
-            <StyledHeadline fontSize={9}>
+            <StyledHeadline fontSize={12}>
               {errors.course_module?.message}
             </StyledHeadline>
 
