@@ -15,7 +15,8 @@ export const StyledModalDiv = styled.div`
 `;
 
 export const StyledDiv = styled.div`
-  width: 300px;
+  width: 80%;
+  max-width: 500px;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -27,7 +28,7 @@ export const StyledDiv = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 50px;
+    height: 60px;
     background: #343b41;
     border-radius: 3.20867px 3.20867px 0px 0px;
 
