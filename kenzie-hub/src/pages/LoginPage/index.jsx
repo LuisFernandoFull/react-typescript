@@ -30,10 +30,6 @@ export const LoginPage = () => {
     resolver: yupResolver(formLoginSchema),
   });
 
-  const handleForm = (data) => {
-    handleLogin(data);
-  };
-
   return (
     <Main>
       <Container>
@@ -45,7 +41,7 @@ export const LoginPage = () => {
         />
         <StyledDiv>
           <StyledTitleOne color="#fff">Login</StyledTitleOne>
-          <Form onSubmit={handleSubmit(handleForm)}>
+          <Form onSubmit={handleSubmit(handleLogin)}>
             <Label htmlFor="email">Email</Label>
             <StyledInput
               type="email"

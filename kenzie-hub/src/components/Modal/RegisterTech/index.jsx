@@ -26,10 +26,6 @@ export const ModalRegisterTech = () => {
     resolver: yupResolver(formTechSchema),
   });
 
-  const onSubmitFunction = (techData) => {
-    createTech(techData);
-  };
-
   return (
     <StyledModalDiv>
       <StyledDiv ref={modalRef}>
@@ -40,7 +36,7 @@ export const ModalRegisterTech = () => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <form onSubmit={handleSubmit(createTech)}>
           <Label htmlFor={"title"}>Nome</Label>
           <StyledInput
             type="text"

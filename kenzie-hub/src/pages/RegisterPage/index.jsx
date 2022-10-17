@@ -33,9 +33,7 @@ export const RegisterPage = () => {
   } = useForm({
     resolver: yupResolver(formRegisterSchema),
   });
-  const onSubmitFunction = (registerData) => {
-    handleRegister(registerData);
-  };
+
   return (
     <Main>
       <Container>
@@ -54,7 +52,7 @@ export const RegisterPage = () => {
             </StyledHeadline>
           </div>
 
-          <Form onSubmit={handleSubmit(onSubmitFunction)}>
+          <Form onSubmit={handleSubmit(handleRegister)}>
             <Label htmlFor="name">Nome</Label>
             <StyledInput
               type="text"
