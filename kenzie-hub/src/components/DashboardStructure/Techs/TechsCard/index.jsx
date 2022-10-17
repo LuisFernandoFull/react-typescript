@@ -1,13 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { StyledLi } from "./style";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { TechsContext } from "../../../../contexts/TechsContext/TechsContext";
 export const TechsCards = () => {
-  const { techs, searchUserData, deleteTech } = useContext(TechsContext);
+  const { techs, deleteTech } = useContext(TechsContext);
 
-  useEffect(() => {
-    searchUserData();
-  }, []);
   return techs.map((tech) => {
     return (
       <StyledLi key={tech.id}>
