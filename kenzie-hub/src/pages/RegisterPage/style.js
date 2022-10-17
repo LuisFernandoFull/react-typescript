@@ -79,8 +79,8 @@ export const StyledLink = styled(Link)`
 export const StyledSelect = styled.select`
   background-color: var(--grey-2);
   height: 50px;
-
-  border: 0.9px solid var(--grey-0);
+  border: none;
+  /* border: 0.9px solid var(--grey-0); */
   color: var(--grey-0);
   border-radius: 3px;
 
