@@ -7,26 +7,17 @@ export const TechsContext = createContext({});
 export const TechsProvider = ({ children }) => {
   const [techs, setTechs] = useState([]);
 
-  const searchUserData = async () => {
-    try {
-      const response = await api.get("/profile");
-
-      setTechs(response.data.techs);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const createTech = async (data) => {
     try {
-      // eslint-disable-next-line no-unused-vars
-      const response = await api.post("/users/techs", data);
-      toast.success("Conta criada com sucesso!", {
+      const resp = await api.post("/users/techs", data);
+
+      setTechs([...techs, resp.data]);
+      toast.success("Tecnologia criada com sucesso!", {
         position: toast.POSITION.TOP_RIGHT,
         toastId: 1,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT,
         toastId: 1,
@@ -47,9 +38,7 @@ export const TechsProvider = ({ children }) => {
     }
   };
   return (
-    <TechsContext.Provider
-      value={{ techs, searchUserData, createTech, deleteTech }}
-    >
+    <TechsContext.Provider value={{ techs, createTech, deleteTech }}>
       {children}
     </TechsContext.Provider>
   );

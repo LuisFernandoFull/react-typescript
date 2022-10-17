@@ -12,14 +12,17 @@ export const StyledContAddTech = styled.div`
     width: 32px;
     height: 32px;
     color: white;
-    background: #212529;
+    background-color: var(--grey-3);
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover {
+      border: 1px solid var(--grey-2);
+      background-color: var(--grey-2);
       scale: 1.3;
+      transition: 0.5s ease;
     }
   }
 `;

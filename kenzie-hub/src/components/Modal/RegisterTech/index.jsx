@@ -9,6 +9,7 @@ import { formTechSchema } from "../../../validation";
 import { useContext, useEffect } from "react";
 import { TechsContext } from "../../../contexts/TechsContext/TechsContext";
 import { ModalContext } from "../../../contexts/ModalContext/ModalContext";
+import { StyledTitleHTwo } from "../../../styles/typography";
 export const ModalRegisterTech = () => {
   const { createTech } = useContext(TechsContext);
   const { setCurrentModal, handleOutClick, modalRef } =
@@ -25,21 +26,17 @@ export const ModalRegisterTech = () => {
     resolver: yupResolver(formTechSchema),
   });
 
-  const onSubmitFunction = (techData) => {
-    createTech(techData);
-  };
-
   return (
     <StyledModalDiv>
       <StyledDiv ref={modalRef}>
         <div>
-          <h4>cadastrar Tecnologia</h4>
+          <StyledTitleHTwo>cadastrar Tecnologia</StyledTitleHTwo>
           <button type="button" onClick={() => setCurrentModal(null)}>
             x
           </button>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <form onSubmit={handleSubmit(createTech)}>
           <Label htmlFor={"title"}>Nome</Label>
           <StyledInput
             type="text"

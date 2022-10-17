@@ -5,7 +5,6 @@ export const StyledTitleOne = styled.h1`
   font-style: normal;
   font-weight: 700;
   font-size: ${(props) => props.fontSize}px;
-  line-height: 28px;
   color: ${(props) => props.color};
 `;
 
@@ -16,6 +15,14 @@ export const StyledTitleTwo = styled(StyledTitleOne)`
 
 export const StyledTitleThree = styled(StyledTitleOne)`
   font-size: 14px;
+`;
+
+export const StyledTitleHTwo = styled.h2`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: ${(props) => props.fontSize}px;
+  color: ${(props) => props.color};
 `;
 
 export const StyledHeadline = styled.p`
