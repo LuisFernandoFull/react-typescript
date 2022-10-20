@@ -9,6 +9,7 @@ export const StyledMain = styled.main`
 
   width: 100vw;
   height: 100vh; */
+  position: relative;
   display: flex;
   align-items: center;
   width: 100vw;
