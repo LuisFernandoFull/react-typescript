@@ -1,4 +1,5 @@
 import { StyledTitleHTwo } from "../../../styles/typography";
+
 import { StyledDiv } from "./style";
 
 export const LandingPage = () => {

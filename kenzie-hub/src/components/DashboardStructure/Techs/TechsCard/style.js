@@ -14,6 +14,7 @@ export const StyledLi = styled.li`
 
   > div {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 30px;
 

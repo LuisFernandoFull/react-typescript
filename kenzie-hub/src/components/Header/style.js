@@ -7,11 +7,14 @@ export const StyledHeader = styled.header`
   border-top-style: inset;
   border-bottom-color: var(--grey-3);
   border-top-color: var(--grey-3);
+  position: relative;
+  top: 100px;
   div {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 15px;
   }
 `;
