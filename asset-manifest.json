@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-typescript/static/css/main.616e0428.css",
+    "main.js": "/react-typescript/static/js/main.c3eff8fa.js",
+    "static/media/LogoHub.svg": "/react-typescript/static/media/LogoHub.2f0f0c25afeac21c56c45b8086a1f6dd.svg",
+    "index.html": "/react-typescript/index.html",
+    "main.616e0428.css.map": "/react-typescript/static/css/main.616e0428.css.map",
+    "main.c3eff8fa.js.map": "/react-typescript/static/js/main.c3eff8fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.616e0428.css",
+    "static/js/main.c3eff8fa.js"
+  ]
+}
